@@ -22,11 +22,11 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
         # path('grappelli/', include('grappelli.urls')), # grappelli URLS
 
-    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    # path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('order-menu/', include('Product.urls')),
-    path('accounts/', include('allauth.urls')), 
+    # path('accounts/', include('allauth.urls')), 
     path('forms/',include('Reservations_Reviews_Contact.urls')),
     path('articles/',include('Articles.urls')),
     path('logout', LogoutView.as_view()) 

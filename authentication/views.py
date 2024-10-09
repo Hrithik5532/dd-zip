@@ -11,7 +11,6 @@ import random
 from django.db.models import Sum
 
 from functions import send_email_otp
-<<<<<<< HEAD
 from Product.models import SubCategory,Product
 from Reservations_Reviews_Contact.models import Review
 
@@ -35,9 +34,7 @@ def menu_list():
                 
     return result_list
 
-=======
 from Reservations_Reviews_Contact.models import Review
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
 def get_lat_long(address):
     geolocator = Nominatim(user_agent="user_agent")  # Replace with your app name
     location = geolocator.geocode(address)
@@ -61,7 +58,6 @@ print("!@#@@!@@@!!@#@@",store_location)
 
 
 def home(request):
-<<<<<<< HEAD
     breakfast = Product.objects.filter(category__name ='Breakfast')
     lunch = Product.objects.filter(category__name ='Lunch')
     dinner = Product.objects.filter(category__name ='Dinner')
@@ -70,10 +66,6 @@ def home(request):
         cart_item_list = [i.product.id for i in Cart.objects.filter(user=request.user)]
     else:
         cart_item_list=[]
-=======
-    reviews = Review.objects.order_by('-id').all()[:11]
-    return render(request,'index-4.html',{'reviews':reviews})
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
 
     products = Product.objects.all()[::-1]
     
@@ -372,42 +364,6 @@ def remove_from_cart(request):
 
 
 
-<<<<<<< HEAD
-=======
-
-
-def my_cart(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-
-    
-    user_location = request.session.get('user_location', None)
-
-    if not user_location:
-        # If not, send a request to update_session with the default addressId
-        default_address = Address.objects.filter(user=request.user, is_default=True).first()
-        if default_address:
-            update_session(request, addressId=default_address.id)
-
-
-    cart_items = Cart.objects.filter(user=request.user)
-    Subtotal_price = 0
-
-    for i in cart_items:
-        Subtotal_price = float(Subtotal_price + float(i.total_price)) 
-    
-    addresses = Address.objects.filter(user=request.user)
-    try: 
-        delivery_price = float((int(request.session['distance_km'])*10))
-        total_price = round(Subtotal_price + delivery_price)
-    except:
-        delivery_price =None
-        total_price = round(Subtotal_price)
-        
-    return render(request,'my-cart.html',{'cart_items':cart_items,'addresses':addresses,'total_price':total_price,'delivery_price':delivery_price,'Subtotal_price':Subtotal_price})
-
-
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
 def update_session(request,addressId=None):
              
             # addressId = request.GET.get('addressId')

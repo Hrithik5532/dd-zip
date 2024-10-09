@@ -3,7 +3,6 @@ from .models import Product,SubCategory
 from authentication.models import Cart,OrderItem,Order,Address
 from django.db.models import Q
 import paypalrestsdk
-<<<<<<< HEAD
 from functions import send_email_order_confirm
 from authentication.views import menu_list
 from django.http import HttpResponse
@@ -17,13 +16,6 @@ paypalrestsdk.configure({
 })
 
 
-=======
-paypalrestsdk.configure({
-    "mode": "sandbox",  # or "live"
-    "client_id": "AU06i-awSP9OtaccbCDE5UnrdwxL96jaNb6j028aBTxJnb6ru04LenBa8v6PtlMUdwpJVL8G8A63tfrR",
-    "client_secret": "EFwTOw9nttwuQHoLGn8cV1sY-X_y37IaxuUi8j8j7TO3veVlzXG_tbvEF53M2YL2T3o5CYfdF2oNl_Kg"
-})
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
 # Create your views here.
 def menu(request):
 
@@ -108,30 +100,19 @@ def order_create(request):
         order.sub_total = sub_total
         order.save()
 
-<<<<<<< HEAD
     order.deliveryCharges = 0
     order.total = round(float(order.sub_total) + (0),2)
     order.save()
     
     
-=======
-    order.deliveryCharges = float(request.session['distance_km'])*10
-    order.total = round(float(order.sub_total) + (float(request.session['distance_km'])*10),2)
-    order.save()
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
     payment = paypalrestsdk.Payment({
         "intent": "sale",
         "payer": {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-<<<<<<< HEAD
             "return_url": "https://bombay2goa.co.uk/order-menu/payment/execute/",
             "cancel_url": "https://bombay2goa.co.uk/order-menu/payment/cancel/"
-=======
-            "return_url": "http://103.172.92.174/order-menu/payment/execute/",
-            "cancel_url": "http://103.172.92.174/order-menu/payment/cancel/"
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
         },
         "transactions": [{
             "amount": {
@@ -141,7 +122,6 @@ def order_create(request):
             "description": "Payment description"
         }]
     })
-<<<<<<< HEAD
 
 
     if payment.create():
@@ -163,37 +143,13 @@ def order_create(request):
 def payment_execute(request):
 
     
-=======
-    
-
-    if payment.create():
-        request.session['paypal_payment_id'] = payment.id
-        order.payment_id = payment.id
-        order.save()
-        for link in payment.links:
-            if link.method == "REDIRECT":
-                redirect_url = str(link.href)
-                return redirect(redirect_url)
-
-
-    else:
-        # messages.error(request,"Payment Canceled")
-        return render(request, 'payment_error.html')
-
-def payment_execute(request):
-
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
     payment_id = request.session.get('paypal_payment_id')
     if payment_id is None:
         return redirect('home')
     
     payment = paypalrestsdk.Payment.find(payment_id)
     if payment:
-<<<<<<< HEAD
       
-=======
-        # Payment successful
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
         order = Order.objects.get(payment_id=payment_id)
        
       
@@ -203,21 +159,13 @@ def payment_execute(request):
         order.save()
 
         Cart.objects.filter(user=request.user).delete()
-<<<<<<< HEAD
         send_email_order_confirm(request,request.user,order,'success')
-=======
-
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
         cntx={
                     'payment':payment,
                     'order':order
         }
         # You can perform any additional actions here, such as updating your database
-<<<<<<< HEAD
         messages.success(request,'Order Placed! You can check on order Track')
-=======
-        # messages.success(request,'Order Placed! You can check on order Track')
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
         return render(request,'order-success.html',cntx)
     else:
         # Payment failed
@@ -227,12 +175,7 @@ def payment_execute(request):
         order.payment_status = "Failed"
         order.save()
 
-<<<<<<< HEAD
         send_email_order_confirm(request,request.user,order,'failed')
 
     return render(request, 'payment-failed.html',{'title':'Payment Failed','result_list':menu_list()})    
     # return render(request, 'order-success.html')
-=======
-
-        return render(request, 'payment_error.html')
->>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
