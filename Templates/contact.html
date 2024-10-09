@@ -1,0 +1,292 @@
+{% extends "template.html" %}
+ <!--=================================
+ header -->
+
+ <!--=================================
+ intro bg -->
+ {% block body %}
+<div class="inner-intro parallax bg-overlay-black-70" style="background-image: url(../statics/images/custom/Contact_pg_1.JPG);">
+  <div class="container">
+    <div class=" text-center intro-title">
+     <div class="col-sm-12">
+      <h1 class="text-orange" style="font-weight:bold;font-size:75px !important;"> Contact Us</h1>
+      <p class="text-white">It would be great to hear from you! If you got any questions      </p>
+      <ul class="page-breadcrumb" style="padding-top:7rem">
+        <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+        <li><span>Contact Us  </span></li>
+      </ul>
+     </div>
+    </div>
+  </div>
+</div>
+
+<!--=================================
+ intro bg -->
+
+
+<!--=================================
+  contact -->
+
+<section class="contact white-bg page-section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title text-center">
+        <div class="title-separator">
+           <i class="glyph-icon flaticon-food-27"></i>
+         </div>
+          <h2> <span class="text-orange">Contact </span> Us</h2>
+        </div>
+      </div>
+     </div>
+     <div class="row">
+        
+          <div class="col-lg-4 col-md-3 col-sm-6">
+            <div class="contact-box text-center">
+                <i class="fa fa-map-marker"></i>
+                <h5 style="font-weight:bold">Address</h5>
+                <p style="font-size:20px">16 Headingley Lane, Headingley, Leeds, LS6 2AS</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-6">
+          <div class="contact-box text-center">
+              <i class="fa fa-phone"></i>
+              <h5 style="font-weight:bold">Phone</h5>
+              <a href="tel:01135135972" style="color:#9d9d9d !important;font-size:20px"> 0113 513 5972</a> <br>
+              <a href="tel:+447908987530" style="color:#9d9d9d !important;font-size:20px"> +447908987530 </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3 col-sm-6">
+              <div class="contact-box text-center">
+                <i class="fa fa-envelope-o"></i>
+                <h5 style="font-weight:bold">Email</h5>
+                <a href="mailto:info@bombay2goa.co.uk" style="color:#9d9d9d !important;font-size:20px"> info@bombay2goa.co.uk</a>
+                <a href="mailto:reservation@bombay2goa.co.uk" style="color:#9d9d9d !important;font-size:20px"> reservation@bombay2goa.co.uk</a> 
+              </div>
+          </div>
+        
+      </div>
+      <div class="row mt-30">
+        <div class="col-lg-12">
+        <div id="formmessage">Success/Error Message Goes Here</div>
+          <form action="{% url 'contact_us' %}" method="POST">
+          {% csrf_token %}
+           <div class="">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-field">
+                    <i class="fa fa-user"></i>
+                    <input id="name" type="text" placeholder="Name*" class="form-control" name="name" required>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-field">
+                      <i class="fa fa-phone"></i>
+                      <input type="text" placeholder="Phone*" class="form-control" name="phone"required>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-field">
+                    <i class="fa fa-envelope-o"></i>
+                    <input type="email" placeholder="Email*" class="form-control" name="email"required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-field">
+                      <i class="fa fa-pencil"></i>
+                        <textarea class="input-message form-control" placeholder="Comment*" rows="7" name="message"required></textarea>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-submit mt-10 text-center">
+                   <button id="submit" name="Submit" type="submit" value="Send" class="button"> Send Message</button>
+              </div>
+              </div>
+            </form>
+        </div>
+      </div>
+  </div>
+
+</section>
+
+ <!--=================================
+  contact -->
+
+ <!--=================================
+  contact-map -->
+
+  <section class=" contact white-bg page-section-ptb mt-1">
+    <div class="container-fluid">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.5591042732303!2d-1.5646455232395637!3d53.81512867242893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487959531faa3db5%3A0xd8bde39e939bbbef!2s16%20Headingley%20Ln.%2C%20Headingley%2C%20Leeds%20LS6%202AS%2C%20UK!5e0!3m2!1sen!2sin!4v1700559135065!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+  </div>
+ </section>
+
+ <!--=================================
+  contact-map -->
+<section class="contact white-bg page-section-ptb mt-3"style="background:#313131">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title text-center mb-0">
+        <div class="title-separator">
+           <i class="glyph-icon flaticon-food-27"></i>
+         </div>
+          <h2 class="text-white"> <span class="text-orange">Start Career</span> With Us</h2>
+        </div>
+      </div>
+     </div>
+    
+      <div class="row p-0">
+        <div class="col-lg-12">
+          <form action="{% url 'contact_us' %}?form=jobpost" method="POST" enctype= 'multipart/form-data'>
+          {% csrf_token %}
+           <div class="">
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-2 ">
+                  <div class="form-field">
+                    <label for=""></label>
+
+                      <input id="name" type="text" placeholder="Name*" class="form-control" name="name" required>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                  <div class="form-field">
+                    <label for=""></label>
+
+                    <input type="text" placeholder="Phone*" class="form-control" name="phone"required>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                    <div class="form-field">
+                      <label for=""></label>
+
+                        <input type="email" placeholder="Email*" class="form-control" name="email"required>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 ">
+                    <div class="form-field">
+                      <label for="" class="text-white">Resume/CV :</label>
+                        <input type="file" placeholder="Resume/CV*" class="form-control" name="file"required>
+                    </div>
+                </div>
+            </div>
+            
+              <div class="form-submit mt-10 text-center pt-2">
+                   <button id="submit" name="Submit" type="submit" value="Send" class="button"> Apply Now</button>
+              </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<section class=" contact white-bg page-section-ptb">
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title text-center">
+        <div class="title-separator">
+           <i class="glyph-icon flaticon-food-27"></i>
+         </div>
+          <h2> <span class="text-orange">FAQs</span> </h2>
+        </div>
+      </div>
+     </div>
+    
+      <div class="row mt-30">
+        <div class="col-lg-6">
+          <div class="accordion w-100" id="basicAccordion">
+            <div class="accordion-item mt-3">
+              <h2 class="accordion-header" id="headingOne">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  What are your opening times?                </button>
+              </h2>
+              <div id="basicAccordionCollapseOne" class="accordion-collapse collapse bg-grey" aria-labelledby="headingOne"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  Our opening hours are 12PM to 11:30 PM
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mt-3">
+              <h2 class="accordion-header" id="headingTwo">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  I have an allergy, can you cater for me?</button>
+              </h2>
+              <div id="basicAccordionCollapseTwo" class="accordion-collapse collapse bg-grey" aria-labelledby="headingTwo"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  We are able to cater for a wide range of allergies here at Bombay2Goa; please ensure to advise your server or member of our staff so that they can ask a manager to assist.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mt-3">
+              <h2 class="accordion-header" id="headingThree">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  How do we book a table?                </button>
+              </h2>
+              <div id="basicAccordionCollapseThree" class="accordion-collapse collapse bg-grey" aria-labelledby="headingThree"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  To make a booking you can book online via our website or call us on 0113 5135972 / 07908987530.  For large parties please contact the premises directly.
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <div class="accordion w-100" id="basicAccordion">
+            <div class="accordion-item mt-3">
+              <h2 class="accordion-header" id="headingOne">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapse4" aria-expanded="false" aria-controls="collapseOne">
+                  Can I book for a large party or full venue hire?                </button>
+              </h2>
+              <div id="basicAccordionCollapse4" class="accordion-collapse collapse bg-grey" aria-labelledby="headingOne"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  Yes you can book in for large groups or full venue hires.  Please contact the restaurant directly and one of the team will get back to you as soon as possible.  
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mt-3 ">
+              <h2 class="accordion-header" id="headingTwo">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapse5" aria-expanded="false" aria-controls="collapseTwo">
+                  Can you offer anything for birthday?             </button>
+              </h2>
+              <div id="basicAccordionCollapse5" class="accordion-collapse collapse bg-grey" aria-labelledby="headingTwo"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  Birthday at Bombay2Goa are magical celebration. If you are celebrating a Birthday please let us know and we can arrange for a Birthday plate.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mt-3">
+              <h2 class="accordion-header" id="headingThree">
+                <button style="font-size:25px;font-weight:bold" class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#basicAccordionCollapse6" aria-expanded="false" aria-controls="collapseThree">
+                  Do you do catering?                </button>
+              </h2>
+              <div id="basicAccordionCollapse6" class="accordion-collapse collapse bg-grey" aria-labelledby="headingThree"
+                data-mdb-parent="#basicAccordion" style="">
+                <div class="accordion-body container">
+                  Yes we do weddings, parties, special occasion and corporate events. Please contact our Event Experts on 07908987530 or 0113 5135972 or email info@bombay2goa.co.uk
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+</section>
+  {% endblock body %}

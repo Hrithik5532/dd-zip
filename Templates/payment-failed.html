@@ -1,0 +1,27 @@
+
+{% extends 'template.html' %}
+
+{% block body %}
+
+<style>
+    ._failed{ border-bottom: solid 4px red !important; }
+._failed i{  color:red !important;  }
+
+</style>
+
+<div class="row justify-content-center" style="
+    margin: 41px;
+    padding: 44px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;">
+    <div class="col-md-5">
+        <div class="message-box _success _failed">
+             <i class="fa fa-times-circle" aria-hidden="true"></i>
+            <h2> Your payment failed </h2>
+            <p>  Try again later {{payment}}</p> 
+ 
+        </div> 
+    </div> 
+</div> 
+{% endblock body %}

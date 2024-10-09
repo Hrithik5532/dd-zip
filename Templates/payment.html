@@ -1,0 +1,235 @@
+
+
+<html>
+	<header>
+		<style>
+			body{
+				-moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; background-color: #d7d7d7; margin: 0; padding: 0;
+			}
+			.btn {
+				background-color: #04AA6D;
+				color: white;
+				padding: 12px;
+				margin: 10px 0;
+				border: none;
+				width: 100%;
+				border-radius: 3px;
+				cursor: pointer;
+				font-size: 17px;
+			  }
+			  
+			  .btn:hover {
+				background-color: #45a049;
+			  }
+			  
+			</style>
+	</header> 
+	<body style="margin:3rem 25rem">
+
+		<table cellpadding="0" cellspacing="0" cols="1" bgcolor="#d7d7d7" align="center" style="max-width: 600px;">
+			<tr bgcolor="#d7d7d7">
+				<td height="50" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+			</tr>
+	
+			<!-- This encapsulation is required to ensure correct rendering on Windows 10 Mail app. -->
+			<tr bgcolor="#d7d7d7">
+				<td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
+					<!-- Seperator Start -->
+					<table cellpadding="0" cellspacing="0" cols="1" bgcolor="#d7d7d7" align="center" style="max-width: 600px; width: 100%;">
+						<tr bgcolor="#d7d7d7">
+							<td height="30" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+					</table>
+					<!-- Seperator End -->
+					
+									<!-- Generic Pod Left Aligned with Price breakdown Start -->
+					<table align="center" cellpadding="0" cellspacing="0" cols="3" bgcolor="white" class="bordered-left-right" style="border-left: 10px solid #d7d7d7; border-right: 10px solid #d7d7d7; max-width: 600px; width: 100%;">
+						<tr height="50"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
+						<tr align="center">
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+							<td class="text-primary" style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
+								£ {{order.total}}
+							</td>
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+						<tr height="17"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
+						<tr align="center">
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+							<td class="text-primary" style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
+								<h1 style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 700; line-height: 34px; margin-bottom: 0; margin-top: 0;">Payment Amount</h1>
+							</td>
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+						<tr height="30"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
+						
+						<tr height="30">
+							<td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+							<td style="border-bottom: 1px solid #D3D1D1; color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+							<td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+						<tr height="30"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
+						<tr align="center">
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+							<td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
+								<p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;"><strong><a href="{% url 'my-cart' %}">View In Cart</a></strong></p>
+								<p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;">Order date: {{order.created_at}}</p>
+								<p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;"></p>
+							</td>
+							<td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+	
+						<tr height="50">
+							<td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+	
+					</table>
+					<!-- Generic Pod Left Aligned with Price breakdown End -->
+	
+					<!-- Seperator Start -->
+					<table cellpadding="0" cellspacing="0" cols="1" bgcolor="#d7d7d7" align="center" style="max-width: 600px; width: 100%;">
+						<tr bgcolor="#d7d7d7">
+							<td height="50" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
+						</tr>
+					</table>
+					<!-- Seperator End -->
+	
+				</td>
+			</tr>
+		</table>
+
+		<form id ="autoSubmitForm"method="POST" action="https://www.ipg-online.com/connect/gateway/processing">
+			{% csrf_token %}
+			<input name="checkoutoption" type="hidden" value="combinedpage"/>
+			<input name="currency" type="hidden" value=""/><!-- See onClick event. -->
+			<input name="hash" type="hidden" value=""/><!-- || -->
+			<input name="hashExtended" type="hidden" value=""/><!-- || -->
+			<input name="hash_algorithm" type="hidden" value=""/><!-- || -->
+			<input name="mode" type="hidden" value="payonly"/>
+			<input name="responseFailURL" type="hidden" value="https://www.bombay2goa.co.uk/">
+			<input name="responseSuccessURL" type="hidden" value="https://www.bombay2goa.co.uk/order-menu/payment/execute/">
+			<input name="storename" type="hidden" value=""/><!-- || -->
+			<input name="timezone" type="hidden" value="Europe/London"/>
+			<input name="txndatetime" type="hidden" value=""/><!-- || -->
+			<input name="txntype" type="hidden" value="sale"/>
+			<input name="chargetotal" type="hidden" value="12" readonly/></p>
+			<button type="submit"  class="btn">Continue to checkout
+				
+			</button>
+
+		</form>
+	</body>
+	{% comment %} <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('loader').style.display = 'block';
+            
+            // Set initial form values here if needed
+            // e.g., setVal("txndatetime",getDateTime());
+
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none'; // Optional: Hide loader
+                document.getElementById('autoSubmitForm').submit(); // Programmatically submit the form
+            }, 3000); // Wait for 3 seconds before submitting
+        };
+    </script> {% endcomment %}
+		
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+//*********************************************************
+//Set shared secret -- Please use your own shared secret.**
+//*******************************************************//
+var sharedsecret="J]u-3bOK4G";
+
+function submitForm(){
+	//Initiate "txndatetime" parameter.
+	setVal("txndatetime",getDateTime());
+
+	//Set currency -- "826" is "GBP".
+	setVal("currency",826);
+
+	//************************************************
+	//Set storename -- Please use your own store ID.**
+	//**********************************************//
+	setVal("storename",7250543130);
+
+	//Set hash value -- uncomment depending on which method you wish to use.
+	setVal("hash",getHash());
+
+	//setVal("hashExtended",getExtendedHash());
+}
+
+function bin2hex(str){
+	var arr=new Array(),g,len=str.length;
+	for(g=0;g<len;g++)
+		arr[g]=str.charCodeAt(g).toString(16).replace(/^([\da-f])$/,"0$1");
+	return arr.join("");
+}
+
+function getDateTime(){
+	var dateObj=new Date(),day=dateObj.getDate(),month=dateObj.getMonth()+1;
+	var hour=dateObj.getHours(),minute=dateObj.getMinutes(),second=dateObj.getSeconds();
+	if(day<=9)
+		day="0"+day;
+	if(hour<=9)
+		hour="0"+hour;
+	if(minute<=9)
+		minute="0"+minute;
+	if(month<=9)
+		month="0"+month;
+	if(second<=9)
+		second="0"+second;
+	var date=dateObj.getFullYear()+":"+month+":"+day, time=hour+":"+minute+":"+second;
+	return date+"-"+time;
+}
+
+function getExtendedHash(){
+	//Initiate extended hash variable.
+	var extendedHash="";
+
+	//Set hash algorithm.
+	setVal("hash_algorithm","HMACSHA256");
+
+	//Initiate concatenated string.
+	var sep="|";
+	extendedHash=getVal("chargetotal")+sep+getVal("checkoutoption")+sep+getVal("currency")+sep+getVal("hash_algorithm")+sep+getVal("mode")+sep+getVal("responseFailURL")+sep+getVal("responseSuccessURL")+sep+getVal("storename")+sep+getVal("timezone")+sep+getVal("txndatetime")+sep+getVal("txntype");
+
+	//Apply hashing algorithm and set hash value.
+	extendedHash=CryptoJS.HmacSHA256(extendedHash,sharedsecret);
+
+	//Base64-encode hash value.
+	extendedHash=CryptoJS.enc.Base64.stringify(extendedHash);
+
+	//Return the hash value.
+	return extendedHash;
+}
+
+function getHash(){
+	//Initiate hash variable.
+	var hash="";
+
+	//Set hash algorithm.
+	setVal("hash_algorithm","SHA256");
+
+	//Initiate concatenated string.
+	var storename=getVal("storename"),txndatetime=getVal("txndatetime"),chargetotal=getVal("chargetotal"),currency=getVal("currency");
+	hash=storename+txndatetime+chargetotal+currency+sharedsecret;
+
+	//Hex-encode concatenated string.
+	hash=bin2hex(hash);
+
+	//Apply hashing algorithm and set hash value.
+	hash=CryptoJS.SHA256(hash);
+
+	//Return the hash value.
+	return hash;
+}
+
+function getElem(name,idx){return document.getElementsByName(name)[idx>0?idx:0];}
+function getVal(name){return getElem(name).value;}
+function setVal(name,value){getElem(name).value=value;}
+
+</script>
+</html>
+

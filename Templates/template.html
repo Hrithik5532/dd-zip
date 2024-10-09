@@ -1,0 +1,1027 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<<<<<<< HEAD
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="Bomaby2Goa, food ordering, Restaurant, UK" />
+<meta name="description" content="Bombay2Goa - Restaurant, Food & Cafe " />
+<meta name="author" content="https://bombay2goa.co.uk" />
+=======
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/the-BomabyToGoa/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 16:39:00 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="HTML5 Template" />
+<meta name="description" content="The BomabyToGoa - Multipurpose Restaurant, Food & Cafe HTML5 Template" />
+<meta name="author" content="potenzaglobalsolutions.com" />
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>   {{title}} | Bombay2Goa </title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="{% static 'images/B2G-1.png' %}" />
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Amatic+SC:400,700|Lilita+One" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}" />
+
+    <!-- revolution slider -->
+    <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/navigation.css' %}">
+
+    <!-- mega menu -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mega-menu/mega_menu.css' %}" />
+
+    <!-- carousel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl-carousel/owl.carousel.min.css' %}" />
+
+    <!-- book -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/book/component.css' %}" />
+
+    <!-- main style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+    <!-- responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+
+    <!-- magnific-popup -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup/magnific-popup.css' %}" />
+
+    <!-- Style customizer -->
+    <link rel="stylesheet" type="text/css" href="#" data-style="styles" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-customizer.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+    <!-- Include Toastr CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Include SweetAlert2 CSS and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Include Leaflet CSS and JS -->
+
+    <!-- Leaflet Routing Machine -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+{% block head %}
+
+{% endblock head %}
+<style>
+    body{
+      font-family:Montserrat !important;
+    }
+    .reservation {
+        color:white !important;
+        text-decoration: none;
+        position: relative;
+      }
+      
+      .reservation:after {
+        margin-bottom: -5px;
+        color:white !important;
+
+        border-radius: 1em;
+        border-top: .15em solid red;
+        content: "";
+        position: absolute;
+          right: 100%;
+          
+          bottom: .14em;
+          left: 0;
+        transition: right .4s cubic-bezier(0,.5,0,1);
+      }
+      
+      .reservation:hover:after {
+        right: 0;
+        color:white !important;
+        
+
+      }
+      .links:hover{
+        color:white;
+      }
+      .share-icon-top{
+            font-size: 1.2rem !important;
+
+      }
+<<<<<<< HEAD
+      .mobile-footer{
+        display:none;
+      }
+=======
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+      @media (max-width: 600px) {
+        .footer-content-3, .footer-content-1, .footer-content-4{
+          display:none;
+        }
+<<<<<<< HEAD
+
+        .mobile-footer{
+          display:block;
+        }
+=======
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+    }
+    .custom-heading-font-wight{
+      font-weight : bold;
+    }
+    .share-icon-footer a{
+    font-size: 2rem;
+        padding: 1rem;
+    }
+    .share-icon-footer a i {
+    color:white;
+    }
+    .footer-icon:hover{
+<<<<<<< HEAD
+    color:#ffcb08 !important;
+    }
+    @keyframes shake {
+      10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+      }
+      20%, 80% {
+          transform: translate3d(2px, 0, 0);
+      }
+      30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+      }
+      40%, 60% {
+          transform: translate3d(4px, 0, 0);
+      }
+  }
+
+  .view-cart-button {
+      z-index :1;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      animation: shake 1s infinite; /* Add the shake animation */
+  }
+
+  .view-cart-button:hover {
+      animation: none; /* Disable the animation on hover */
+  }
+
+  .view-cart-button i {
+      margin-right: 5px;
+  }
+=======
+    color:#e93e21 !important;
+    }
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+</style>
+
+<style>
+    /* Chat Icon Styles */
+     .chat-icon {
+            position: fixed;
+            bottom: 25rem;
+            right: 0px;
+    z-index: 999;
+    cursor: pointer;
+    background-color: #25D366;
+    color: #fff;
+    padding: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 3rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    }
+
+  .chat-icon i {
+            font-size: 35px;
+
+    } 
+    .swal2-content select{
+        display:none !important;
+    }
+    .reservation-icon {
+      position: fixed;
+      bottom: 28rem;
+      right: 0px;
+      z-index: 999;
+      cursor: pointer;
+      background-color: #ffcb08;
+      color: #fff;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 3rem;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      transition: background-color 0.3s;
+  }
+  
+  .reservation-icon i {
+      font-size: 20px;
+  }
+  
+  .reservation-icon:hover::before {
+      content: 'RESERVE A TABLE';
+      position: absolute;
+      background-color: #ffcb08;
+      color: #fff;
+      font-size: 14px;
+      padding: 6px;
+      border-radius: 5px;
+      white-space: nowrap;
+      right: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, right 0.3s;
+  }
+  
+  .reservation-icon:hover {
+      background-color: #128C7E;
+  }
+  
+  .reservation-icon:hover::before {
+      opacity: 1;
+      right: calc(100% + 20px);
+  }
+  
+    .swal2-content select{
+      display:none !important;
+    }
+  .hove_img2{
+      display:none;
+  }
+  @media (max-width:500px){
+    .footer-logo img{
+
+    height: 37px !important;
+    }
+    #blogs{
+      margin-bottom:5rem;
+    }
+    #mobile-footer-sticky{
+
+      position: fixed;
+      bottom: 0rem;
+      background: black;
+      width: 100%; /* Ensure it spans the whole width */
+    z-index: 10; /* Ensure it stays on top */
+    }
+    .footer-logo img {
+      height: 24px !important;
+  }
+
+  #mobile-footer-sticky .text-center {
+    margin-top: 6px !important;
+  }
+  
+  .footer-logo h3{
+    
+      font-size: 18px !important;
+  
+  }
+  .row{
+    --mdb-gutter-x: 0rem !important;
+
+  }
+  }
+
+  .adbanner{
+    padding: 3.5rem 0rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px dotted black;
+  }
+  .footer-content-3-banner{
+    background: #ffcb08;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  @media (max-width:1100px){
+    .footer-content-3-banner{
+      display:none;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<!--=================================
+loading -->
+{% comment %} 
+<div id="loading">
+  <div id="loading-center">
+    <img src="../statics/images/loader.gif" alt="">
+   </div>
+</div> {% endcomment %}
+
+<!--=================================
+loading -->
+
+<!--=================================
+ header -->
+
+<header id="header" class="header-2">
+  <div class="topbar " style="padding-top:12px !important; padding-bottom:0px !important">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="topbar-left text-start">
+            <ul>
+<<<<<<< HEAD
+              <li><i class="fa fa-location"></i> 16 Headingley Lane, Headingley, Leeds, LS6 2AS</li>
+=======
+              <li><i class="fa fa-location"></i> 16 Headingley Lane, Headingley, Leeds, LS62AS</li>
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+              <li><a href="mailto:info@bombay2goa.co.uk"> <i class="fa fa-envelope-o"></i> info@bombay2goa.co.uk</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 d-flex">
+            <div class="col-4">
+            <ul>
+<<<<<<< HEAD
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/profile.php?id=61555580980587" target="_blank" data-tooltip="facebook"> <i style="font-size:1.5rem" class="fa-brands fa-facebook"></i> </a>
+            </li>
+           
+            <li class="list-inline-item">
+              <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk" target="_blank" data-tooltip="TripAdvisor">
+                <img src="{% static 'images/tripadvisor.png' %}" alt="TripAdvisor" class="normal-image ">
+              </a>
+          </li>
+            <li class="list-inline-item">
+                <a href="https://maps.app.goo.gl/dZt5a8kwRwRexWst8" target="_blank" data-tooltip="location"> <i style="font-size:1.5rem" class="fas fa-map-marker"></i> </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://www.instagram.com/bombay2goa?igsh=MWttOTVwZzBka3Bueg%3D%3D&utm_source=qr" target="_blank" data-tooltip="instagram"> <i style="font-size:1.5rem" class="fa-brands fa-instagram"></i> </a>
+            </li>
+              {% comment %} <li><a href="#" class="share-icon-top"><i class="fa fa-tripadvisor" aria-hidden="true"></i>
+              </a></li> {% endcomment %}
+                       
+=======
+              <li><a href="#" class="share-icon-top"><i class="fa-brands fa-instagram"></i> </a></li>
+              <li><a href="#" class="share-icon-top"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="#" class="share-icon-top"><i class="fa-brands fa-linkedin"></i></a></li>
+          
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+
+            </ul>
+            </div>
+            <div class="col-4">
+<<<<<<< HEAD
+                <a href="{% url 'reservation' %}" class="reservation btn btn-success text-end" style="background:#ffcb08 !important;">RESERVE A TABLE</a>
+            </div>
+            <div class="col-4">
+                <a href="{% url 'review' %}" class="reservation text-end"> Review</a>
+=======
+                <a href="{% url 'reservation' %}" class="reservation text-end">Make Reservation</a>
+            </div>
+            <div class="col-4">
+                <a href="{% url 'review' %}" class="reservation text-end"> Reviews</a>
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+                <span style="margin: 0px 5px;"> | </span>
+                <a href="{% url 'all_articles' %}" class="reservation text-end"> Articles</a>
+            </div>
+            
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- mega menu -->
+  <div class="menu">
+    <!-- menu start -->
+    <nav id="menu-1" class="mega-menu ">
+      <!-- menu list items container -->
+      <section class="menu-list-items">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 position-relative">
+              <!-- menu logo -->
+              <ul class="menu-logo">
+                <li class="head-info">
+<<<<<<< HEAD
+                  <a href="{% url 'home' %}"><img  src="{% static 'images/B2G-1.png' %}" alt="logo"> </a>
+=======
+                  <a href="index.html"><img id="logo_dark_img" src="../statics/images/logo-dark.png" alt="logo"> </a>
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+                  
+                </li>
+              </ul>
+              <ul>
+                
+              </ul>
+              <!-- menu links -->
+                <ul class="menu-links">
+                    <!-- active class -->
+                    <li>
+                      <a class="" href="{% url 'online_ordering' %}"> Order Online <i class="fa  fa-indicator"></i></a>
+
+                    </li>
+                    <li>
+                    <a class="active" href="{% url 'home' %}"> Home <i class="fa  fa-indicator"></i></a>
+                    </li>
+                 
+                    <li>
+                    <a href="{% url 'menu' %}"> Menu <i class="fa fa-indicator"></i> </a>
+                
+                    </li>
+                
+
+                    
+                    <li><a href="{% url 'contact_us' %}"> Contact us</a></li>
+                    {% if  request.user.is_authenticated %}
+                    <li class="profile-dropdown">
+                      <a href="#" class="profile-icon" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-user"></i> Profile <i class="fa fa-caret-down"></i>
+                      </a>
+                      <ul class="dropdown-menu drop-down-multilevel left-side effect-fade" aria-labelledby="profileDropdown">
+                        <li><a href="{% url 'my-profile' %}">My Profile</a></li>
+                        <li><a href="{% url 'my-cart' %}">My Cart</a></li>
+                        <li><a href="{% url 'order_history' %}">Order History</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}"> login</a></li>
+
+                    {% endif %}
+
+                </ul>
+           </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  <!-- menu end -->
+  </div>
+</header>
+
+<!--=================================
+header -->
+
+
+{% block body %}
+
+{% endblock body %}
+
+<div class="chat-icon">
+      <a href="https://wa.me/447908987530" target="_blank" style="color:white"> <i class="fa-brands fa-whatsapp"></i></a> 
+    </div>
+
+    <div class="reservation-icon">
+      <a href="{% url 'reservation' %}" style="color:white"> <i class="fa-solid fa-hotel"></i> </a>  </div>
+<!--=================================
+footer -->
+
+<<<<<<< HEAD
+
+
+
+<footer class="footer p-0 footer-custom parallax bg-overlay-black-70 page-section-pt" style="background-image: url(../statics/images/bg/06.jpg);">
+       
+            <div class="row justify-content-center" id="mobile-footer-sticky">
+                <div class="col-lg-8 text-center mt-60">
+                    <div class="footer-logo">
+                        <img  class="" src="{% static 'images/B2G2.png' %}"  alt="">
+                        <h3 class="text-white"> Opening times wednesday to monday : <br> 12PM to 11:30 PM...<span class="text-orange">closed On Tuesday </span>
+                        </h3>
+                        
+                    </div>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 footer-content-1" style="    width: 19% !important;">
+                        <div class="logo-sec footer-content-1 d-flex justify-content-center" style="margin:-4rem 0px">
+=======
+<footer class="footer footer-4 footer-custom parallax bg-overlay-black-70 page-section-pt" style="background-image: url(../statics/images/bg/06.jpg);">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="logo-sec footer-content-1">
+              <img id="logo-footer" class="img-flid footer-logo" src="{% static 'images/logo.png' %} " alt="">
+              <div class="d-flex share-icon-footer">
+              <a href="#" ><i class="fa-brands fa-instagram footer-icon"></i> </a>
+              <a href="#" ><i class="fa-brands fa-twitter footer-icon"></i></a>
+              <a href="#" ><i class="fa-brands fa-linkedin footer-icon"></i></a>
+              <a href="#" ><i class="fa-brands fa-whatsapp footer-icon"></i></a>
+          
+              </div>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 footer-content-2">
+            <div class="opening-time" >
+              <h4 class="text-white" style="text-align:center"><span class="text-orange">Open</span> time</h4>
+              <ul class="pl-0">
+                <li><strong>Mon-Friday</strong>  <span class="text-end">8am - 2pm </span></li>
+                <li><strong>Saturday</strong>  <span>10am - 4pm</span></li>
+                <li><strong>Sunday</strong>  <span >11am - 4pm</span></li>
+                <li class="close-day"><span class="graph-icon flaticon-closed-sign"></span><em class="text-orange">on public holidays</em></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-6 footer-content-3">
+            <div class="opening-time">
+              <h4 class="text-white pl-2" ><span class="text-orange">Userful</span> Links</h4>
+              <ul class="pl-0">
+                <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:3px" href="{% url 'home' %}">Articles</a>  </li>
+                <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:3px" href="{% url 'review' %}">Reviews</a>  </li>
+                <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:3px" href="{% url 'menu' %}">Menu</a>  </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-3 col-sm-6 footer-content-4">
+            <div class="contact">
+              <h4 class="text-white" style="text-align:center"><span class="text-orange">CONTACT</span>  US</h4>
+              <p class="text-white"><i class="fa fa-map-marker"></i>16 Headingley Lane, Headingley, Leeds, LS62AS</p>
+              <p class="text-white"><i class="fa  fa-phone"></i>(01) 123 456 7890</p>
+              <p><a href="#" class="text-white"> <i class="fa fa-envelope-o"></i>info@bombay2goa.co.uk</a></p>
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+              
+                                  <div id="scroll-wrap">
+                                      <div class="main">
+                                          <div id="bookshelf" class="bookshelf">
+                                              <figure>
+                                                  <div  class="book" data-book="book-1"></div>
+                                                  <div class="buttons"><a href="#" >Open menu</a> </div>
+                                                  <div class="details"></div>
+                                              </figure>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="bb-custom-wrapper" id="book-1">
+                                    <div class="bb-bookblock">
+                                        <div class="bb-item">
+                                            <div class="bb-custom-side page-layout-3">
+                                                <div class="book-content text-center" >
+                                                    <div class="book-logo "style="margin-top: 7%;">
+                                                        <img class="img-fluid center-block" style="width:50%" src="../statics/images/B2G-1.png" alt="">
+                                                    </div>
+                                                    <div class="delivery-service" style="margin-top: 40%;">
+                                                        <span class="text-white ">delivery service</span>
+                                                        <h2 class="text-white ">0113 513 5972</h2>
+                                                        <p class=" text-white">16 Headingley Lane, Headingley, Leeds, LS6 2AS</p>
+                                                        <p ><a href="mailto:info@bombay2goa.co.uk" class="text-orange"> info@bombay2goa.co.uk</a></p>
+                                                        <p ><a href="mailto:reservation@bombay2goa.co.uk" class="text-orange"> reservation@bombay2goa.co.uk</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bb-custom-side page-layout-3" >
+                                                <div class="book-content" style="overflow-y:scroll !important">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="section-title text-center">
+                                                                <h2 class="text-white"> For <span class="text-orange">Online </span> Ordering</h2>
+                                                                        <a class="button text-uppercase" href="{% url 'menu' %}">Order Now</a>
+    
+                                                            </div>
+                                                        </div>
+    
+                                                        <div class="col-lg-12 col-md-12">
+                                                          <div class="section-title text-center">
+                                                              <h2 class="text-white"> Our <span class="text-orange">  Story</span> </h2>
+                                                                      <p>Growing up in Bombay (present day Mumbai) in the early 80s and having a native place in Goa where most part of the summer vacation were spent, the love for Bombay and Goan food was always there. The lip‐smacking street food of Bombay, the most famous yet humble Vada Pav (hot vada tucked in the soft bread ) Pav Bhaji, Misal Pav, Bombay Sandwich not to forget the Indo Chinese food – Chicken Lollipop deliciously mouth watering crispy and coated in Schezuan sauce, Hakka Noodles and variety of fried rice...........</p>
+                                                                      <a class="button text-uppercase" href="{% url 'about' %}">Read More</a>
+    
+                                                          </div>
+                                                        </div>
+                                                    </div>
+    
+                                                    
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% for catlist in result_list %}
+                                          <div class="bb-item">
+                                            
+    
+                                              <div class="bb-custom-side page-layout-1">
+                                                  <div class="book-content" style="overflow-y:scroll !important">
+                                                      <div class="row">
+                                                          <div class="col-lg-12 col-md-12">
+                                                              <div class="section-title text-center">
+                                                                  <h2 class="text-white"> <span class="text-orange">{{catlist.0.subcategory}}</span> </h2>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                      {% for product in catlist.0.products %}
+                                                      
+                                                      <div class="row mb-50">
+                                                        <div class="col-lg-12 col-md-12">
+                                                          <div class="menu-body menu-white menu-left">
+                                                            <div class="menu-thumbnail">
+                                                              <img class="img-fluid center-block" src="../media/{{product.img}}" alt="">
+                                                            </div>
+                                                            <div class="menu-details" style="display:block !important;">
+                                                              <div class="menu-title clearfix">
+                                                                <h3 style="color:white">{{product.name}}</h3>
+                                                       
+                                                                <div class="menu-description">
+                                                                  <p style="color:white">{{product.description}}</p>
+                                                                </div>
+                                                                <span class="price ">£.{{product.price}}</span>
+                                                              </div>
+                                                              
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      {% endfor %}
+    
+                                                  </div>
+                                              </div>
+                                              <div class="bb-custom-side page-layout-1">
+                                                  <div class="book-content" style="overflow-y:scroll !important">
+                                                      <div class="row">
+                                                          <div class="col-lg-12 col-md-12">
+                                                              <div class="section-title text-center">
+                                                                  <h2 class="text-white"><span class="text-orange">{{catlist.1.subcategory}} </span> </h2>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                     {% for product in catlist.1.products %}
+    
+                                                     <div class="row mb-50">
+                                                      <div class="col-lg-12 col-md-12">
+                                                        <div class="menu-body menu-white menu-left">
+                                                          <div class="menu-thumbnail">
+                                                            <img class="img-fluid center-block" src="../media/{{product.img}}" alt="">
+                                                          </div>
+                                                          <div class="menu-details" style="display:block !important;">
+                                                            <div class="menu-title clearfix">
+                                                              <h3 style="color:white">{{product.name}}</h3>
+                                                     
+                                                              <div class="menu-description">
+                                                                <p style="color:white">{{product.description}}</p>
+                                                              </div>
+                                                              <span class="price ">£.{{product.price}}</span>
+                                                            </div>
+                                                            
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                      {% endfor %}
+    
+                                                  </div>
+                                              </div>
+                                          
+                                          </div>
+                                        {% endfor %}
+    
+                                    </div>
+                                    <!-- /bb-bookblock -->
+                                    <nav>
+                                        <a href="#" class="bb-nav-prev">prev</a>
+                                        <a href="#" class="bb-nav-next">Next</a>
+                                        <a href="#" class="bb-nav-close">Close</a>
+                                    </nav>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 footer-content-3">
+                    <div class="tweet">
+                        <div class="opening-time">
+                          <ul class="pl-0">
+                            {% comment %} <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'about' %}">Reservation</a>  </li> {% endcomment %}
+
+                            <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'about' %}">Our Story</a>  </li>
+                            <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'gallery' %}">Gallery</a>  </li>
+                            <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'all_articles' %}">Articles</a>  </li>
+                            <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'privacypolicy' %}">Privacy Policy</a>  </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 footer-content-3" style="    width: 11% !important;">
+                  <div class="tweet">
+                      <div class="opening-time">
+                        <ul class="pl-0">
+                          <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'home' %}">Home</a>  </li>
+
+                          <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'menu' %}">Menu</a>  </li>
+                          <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'contact_us' %}">Contact Us</a>  </li>
+                          <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'review' %}">Review</a>  </li>
+                          {% comment %} <li><i class="fa fa-dot-circle-o"></i><a class="text-orange links" style="margin-left:8px" href="{% url 'order_history' %}">Order History</a>  </li> {% endcomment %}
+                        </ul>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 footer-content-2 mobile-footer">
+                  <div class="opening-time">
+                    <ul class="pl-0 d-flex " style='justify-content: space-between;'>
+                      <li class="margin:3px"><a class="text-orange links" style="margin-left:8px" href="{% url 'about' %}">Our Story</a>  </li>
+                      <li class="margin:3px"><a class="text-orange links" style="margin-left:8px" href="{% url 'gallery' %}">Gallery</a>  </li>
+                      <li class="margin:3px"><a class="text-orange links" style="margin-left:3px" href="{% url 'all_articles' %}">Articles</a>  </li>
+                      <li class="margin:3px"><a class="text-orange links" style="margin-left:3px" href="{% url 'privacypolicy' %}">Privacy Policy</a>  </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-lg-3 col-md- col-sm-6 footer-content-4" style="    width: 26% !important;margin:0px 7px">
+                  <div class="contact">
+                    <p class="text-white d-flex"><i class="fa fa-map-marker" style="margin:5px 5px"></i><span>16 Headingley Lane, Headingley, Leeds, LS6 2AS</span></p>
+                    <p class="text-white"><i class="fa  fa-phone" style="margin:0px 5px"></i>01135135972 / +447908987530 </p>
+                    <p><a href="mailto:info@bombay2goa.co.uk" class="text-white"> <i class="fa fa-envelope-o" style="margin:0px 5px"></i>info@bombay2goa.co.uk</a></p>
+                  
+                  </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-6 p-0 footer-content-3 footer-content-3-banner">
+                    <div class="opening-time adbanner">
+
+                      <h2 class="text-black" style="font-weight:bold;font-size: 62px;">Buy it Now !</h2>
+                      <div class="container d-flex" style="    padding: 0px 21px;    justify-content: center;">
+                        <ul class="list-inline d-flex">
+                          <li class="list-inline-item" style="justify-content: center;display: flex;flex-direction: column;align-items: center;">
+                          <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk"><img style="     padding: 0px 11px;   width: 106px;"src="{% static 'images/gift-card.png' %}" alt="giftCard" class="normal-image "></a>
+                              <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk"  style="    font-size: large;color: black; padding-top:6px"> Gift Card
+                              </a>
+                           </li>
+
+                          <li class="list-inline-item" style="justify-content: center;display: flex;flex-direction: column;align-items: center;">
+                          <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk"><img  style="     padding: 0px 11px;   width: 112px;" src="{% static 'images/coupon.png' %}" alt="giftCard" class="normal-image "></a>
+                              <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk" style=" display:flex;     text-align: center;  font-size: large;font-weight: 400;color: black;"> Discount  Coupons
+                              </a> 
+                            </li>
+                        </div>
+
+                                               {% comment %} 
+                        <form action="{% url 'newsletter' %}" method="POST">
+                          {% csrf_token %}
+                          <input type="text" class="input-form pt-2 mb-3 text-white" placeholder="Enter Email Id"name="email" required>
+                          <button type='Submit' class="button text-uppercase">submit</button>
+                        </form> {% endcomment %}
+                    </div>
+                </div>
+                
+            </div>
+        <div class="footer-bottom p-0 mt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="co-md-12 text-center">
+                        <div class="footer-social">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="https://www.facebook.com/profile.php?id=61555580980587" target="_blank" data-tooltip="facebook"> <i style="font-size:1.5rem" class="fa-brands fa-facebook"></i> </a>
+                                </li>
+                               
+                                <li class="list-inline-item">
+                                  <a href="https://www.tripadvisor.com/Profile/bombay2goa_uk" target="_blank" data-tooltip="TripAdvisor">
+                                    <img src="{% static 'images/tripadvisor.png' %}" alt="TripAdvisor" class="normal-image ">
+                                    
+                                  </a>
+                              </li>
+                                <li class="list-inline-item">
+                                    <a href="https://maps.app.goo.gl/dZt5a8kwRwRexWst8" target="_blank" data-tooltip="location"> <i style="font-size:1.5rem" class="fas fa-map-marker"></i> </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.instagram.com/bombay2goa?igsh=MWttOTVwZzBka3Bueg%3D%3D&utm_source=qr " target="_blank" data-tooltip="instagram"> <i style="font-size:1.5rem" class="fa-brands fa-instagram"></i> </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <p class="text-white mt-30"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> All right reserved by Bombay2Goa. Designed by <a href="https://www.himanicc.com/"class="text-orange" target="_blank"> www.himanicc.com</a></p>
+                    </div>
+                </div>
+            </div>
+<<<<<<< HEAD
+=======
+          </div>
+      </div>
+    </div>
+    <div class="footer d-flex justify-content-center" style="    text-align: center;">
+        
+        <div class="copyright d-flex justify-content-center"> <p class="text-white"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> All right reserved. Designed by <a href="https://himanicc.com/"class="text-orange" target="_blank"> www.Himanicc.com</a></p>
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+        </div>
+</footer>
+
+  
+  <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-long-arrow-up"></i></a></div>
+
+
+
+<!-- Login Pop-->  
+<div class="modal" id="loginRequiredModal" tabindex="-1" role="dialog" aria-labelledby="loginRequiredModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginRequiredModalLabel">Login Required</h5>
+                <button type="button" class="close" onclick="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>To add item to the cart, login is required!</p>
+                <p>If you don't have an account: <a href="{% url 'register' %}" >Register</a></p>
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                <button type="button" class="btn btn-secondary"  onclick="closeModal()" >Close</button>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- View Cart -->
+  
+{% if cart_item_list %}
+    <button class="view-cart-button btn-success"  onclick="window.location.href = '{% url "my-cart" %}'">
+        <i class="fa fa-shopping-cart"></i> View Cart ({{ cart_item_list|length }})
+    </button>
+
+{% endif %}
+
+{% if request.session.cart %}
+<button class="view-cart-button btn-success"  onclick="window.location.href = '{% url "my-cart" %}'">
+  <i class="fa fa-shopping-cart"></i> View Cart ({{ request.session.cart|length }})
+</button>
+{% endif %}
+
+  <!-- JS Global Compulsory (Do not remove)-->
+    {% block jscript %}
+    {% endblock jscript%}
+    <!-- MDB -->
+
+    {% if messages %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Iterate through Django messages and show SweetAlert2 for each
+                {% for message in messages %}
+                    Swal.fire({
+                        icon: '{{message.tags}}',  // You can customize the icon
+                        title: '{{ message.tags }}',
+                        text: '{{ message }}',
+                    });
+                {% endfor %}
+            });
+        </script>
+    {% endif %}
+{% comment %} <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script> {% endcomment %}
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Page JS Implementing Plugins (Remove the plugin script here if the site does not use that feature)-->
+<!-- jquery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+<!-- popper -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+
+<!-- bootstrap -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- mega menu -->
+<script type="text/javascript" src="{% static 'js/mega-menu/mega_menu.js' %}"></script>
+
+<!-- owl carousel -->
+{% comment %} <script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.min.js' %}"></script> {% endcomment %}
+
+<!-- appear -->
+<script type="text/javascript" src="{% static 'js/jquery.appear.js' %}"></script>
+
+<!-- counter -->
+<script type="text/javascript" src="{% static 'js/counter/jquery.countTo.js' %}"></script>
+
+<!-- open menu -->
+<script type="text/javascript" src="{% static 'js/book/modernizr.custom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/book/bookblock.min.js' %}"></script>
+
+<!-- nicescroll -->
+<script type="text/javascript" src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+
+<!-- select -->
+{% comment %} <script type="text/javascript" src="{% static 'js/jquery-select.js' %}"></script> {% endcomment %}
+
+<!-- popup -->
+<script type="text/javascript" src="{% static 'js/popup/jquery.magnific-popup.js' %}"></script>
+
+<!-- isotope -->
+<script type="text/javascript" src="{% static 'js/isotope/isotope.pkgd.min.js' %}"></script>
+
+<!-- videoBG -->
+{% comment %} <script type="text/javascript" src="{% static 'js/video/jquery.vide.js' %}"></script> {% endcomment %}
+
+<!-- REVOLUTION JS FILES -->
+{% comment %} <script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script> {% endcomment %}
+<script type="text/javascript" src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS
+(Load Extensions only on Local File Systems!
+The following part can be removed on the Server for On-Demand Loading) -->
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+{% comment %} <script type="text/javascript" src="{% static 'revolution/js/extensions/revolution.extension.video.min.js' %}"></script> {% endcomment %}
+<!-- SLIDER REVOLUTION CUSTOM -->
+<script type="text/javascript" src="{% static 'revolution/js/revolution-custom.js' %}"></script>
+
+<!-- style customizer -->
+<script type="text/javascript" src="{% static 'js/style-customizer.js' %}"></script>
+
+<!-- custom -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<script>
+  function closeModal() {
+      $('#loginRequiredModal').modal('hide');
+  }
+</script>
+
+
+<script>
+  // Ensure the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    // Function to adjust the sticky footer position
+    function adjustStickyFooter() {
+      var stickyFooter = document.getElementById('mobile-footer-sticky');
+      var footer = document.querySelector('.footer'); // Assumes you have only one footer element
+  
+<<<<<<< HEAD
+      if (!stickyFooter || !footer) return;
+  
+      var windowHeight = window.innerHeight;
+      var scrollY = window.scrollY || window.pageYOffset;
+      var footerRect = footer.getBoundingClientRect();
+      var footerTopOnScreen = footerRect.top + scrollY;
+      var windowBottom = scrollY + windowHeight;
+      var bottomValue = 0;
+  
+      if (windowBottom > footerTopOnScreen) {
+        // Calculate how much the sticky footer needs to move up
+        bottomValue = windowBottom - footerTopOnScreen; // 12rem above the footer, adjust this value as needed
+      }
+  
+      // Convert 'rem' to pixels for bottomValue calculation
+      var remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      bottomValue = bottomValue / remSize; // Convert pixels to rem (assuming 16px default font size for 1rem)
+  
+      // Apply the new bottom value, adjusting for rem if necessary
+      stickyFooter.style.bottom = `${bottomValue}rem`;
+    }
+  
+    // Listen for scroll events
+    window.addEventListener('scroll', adjustStickyFooter);
+    // Adjust the footer on initial load
+    adjustStickyFooter();
+  });
+  </script>
+  
+
+</body>
+  
+  <!-- Mirrored from themes.potenzaglobalsolutions.com/html/the-Bomaby2Goa/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 16:40:12 GMT -->
+=======
+  <!-- Mirrored from themes.potenzaglobalsolutions.com/html/the-BomabyToGoa/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 16:40:12 GMT -->
+>>>>>>> 5a3c8f640099f247cf7978e0e4212c1837bde818
+  </html>
+  

@@ -1,0 +1,194 @@
+{% extends "template.html" %}
+
+{% block body %}
+
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <style>
+      .cascading-right {
+        margin-right: -50px;
+      }
+  
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+    </style>
+  
+    <!-- Jumbotron -->
+    <div class="container py-4">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card cascading-right" style="
+              background: hsla(0, 0%, 100%, 0.55);
+              backdrop-filter: blur(30px);
+              ">
+            <div class="card-body p-5 shadow-5 text-center">
+              <h2 class="fw-bold mb-2">Enter Email</h2>
+              <div id="loading-spinner" style="display: none;">Loading...</div>
+
+              <form method="POST" action="{% url 'forget_password' %}">
+                  {% csrf_token %}
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <div class="row">
+                      <div class="col-md-12 d-flex justify-content-center">
+                          <div class="form-outline" style="width:50% !important">
+                              <input type="email"class="form-control"  name="email" id="form3Example1" />
+                              <label class="form-label"  for="form3Example1">Email</label>
+                            </div>
+                            <button class="btn btn-primary ml-3" type="button" id="emai_verify" disabled >Verify</button>
+                        </div>
+                  <div class="col-md-12 d-flex justify-content-center mt-3">
+                    <div class="form-outline" style="width:50% !important">
+
+                        <input type="number"class="form-control" min='0' max='999999' disabled id="form3Example2" />
+                        <label class="form-label"  for="form3Example2">OTP</label>
+                    </div>
+                    <button class="btn btn-primary ml-3" type="button" id="otp_verify" disabled >Verify</button>
+                  </div>
+
+                  <div class="col-md-12 d-flex justify-content-center mt-3">
+                    <div class="form-outline" style="width:50% !important">
+                        <input type="password"class="form-control" name="password" id="form3Example3" disabled />
+                        <label class="form-label"  for="form3Example3">Password</label>
+                    </div>
+                    <button class="btn btn-primary ml-3" id= "submit" type="submit"  disabled >Submit</button>
+
+                  </div>
+
+                  
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+  
+        
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select the email input, verify buttons, OTP input, and submit button
+        var emailInput = document.getElementById('form3Example1');
+        var emailVerifyButton = document.getElementById('emai_verify');
+        var otpInput = document.getElementById('form3Example2');
+        var otpVerifyButton = document.getElementById('otp_verify');
+        var passwordInput = document.getElementById('form3Example3');
+        var submitButton = document.getElementById('submit');
+        var loadingSpinner = document.getElementById('loading-spinner');
+
+        // Function to show loading spinner
+        function showLoadingSpinner() {
+            loadingSpinner.style.display = 'inline-block';
+        }
+
+        // Function to hide loading spinner
+        function hideLoadingSpinner() {
+            loadingSpinner.style.display = 'none';
+        }
+
+        // Attach an input event listener to the email input
+        emailInput.addEventListener('input', function () {
+            // Enable or disable the Email Verify button based on whether the email input is empty
+            emailVerifyButton.disabled = emailInput.value.trim() === '';
+        });
+
+        // Attach a click event listener to the Email Verify button
+        emailVerifyButton.addEventListener('click', function () {
+            // Get the entered email
+            var email = emailInput.value.trim();
+
+            // Show loading spinner
+            showLoadingSpinner();
+
+            // Use the fetch method for a GET request
+            fetch(`https://bombay2goa.co.uk/forget_password?email=${email}`)
+                .then(response => {
+                    // Hide loading spinner on response
+                    hideLoadingSpinner();
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Check if the response has the 'User' key with value 'Exist'
+                    if (data.User === 'Exist') {
+                        // Show the OTP input
+                        otpInput.disabled = false;
+                        // Enable the OTP Verify button
+                        otpVerifyButton.disabled = false;
+                        emailInput.readonly = true;
+                        // Optionally, you can focus on the OTP input
+                        otpInput.focus();
+                        // Display a message (you can customize this part)
+                    } else {
+                        // Handle other cases here
+                        alert('Email does not exist');
+                    }
+                })
+                .catch(error => {
+                    // Hide loading spinner on error
+                    hideLoadingSpinner();
+                    // Handle the error here
+                    console.error('Error in GET request:', error);
+                });
+        });
+
+        // Attach a click event listener to the OTP Verify button
+        otpVerifyButton.addEventListener('click', function () {
+            // Get the entered email and OTP
+            var email = emailInput.value.trim();
+            var otp = otpInput.value.trim();
+
+            // Show loading spinner
+            showLoadingSpinner();
+
+            // Use the fetch method for a GET request
+            fetch(`https://bombay2goa.co.uk/forget_password?email=${email}&otp=${otp}`)
+                .then(response => {
+                    // Hide loading spinner on response
+                    hideLoadingSpinner();
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Check if the response has the 'User' key with value 'Verified'
+                    if (data.User === 'Verified') {
+                        // Enable the password input and submit button
+                        passwordInput.disabled = false;
+                        submitButton.disabled = false;
+                        // Optionally, you can focus on the password input
+                        passwordInput.focus();
+                        // Display a message (you can customize this part)
+                        console.log('User Verified:', data.message);
+                    } else {
+                        // Handle other cases here
+                        alert('Invalid OTP');
+                    }
+                })
+                .catch(error => {
+                    // Hide loading spinner on error
+                    hideLoadingSpinner();
+                    // Handle the error here
+                    console.error('Error in GET request:', error);
+                });
+        });
+    });
+</script>
+
+
+
+
+{% endblock body %}

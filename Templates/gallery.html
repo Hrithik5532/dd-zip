@@ -1,0 +1,60 @@
+{% extends "template.html" %}
+   
+{% block body %}
+
+    <!--=================================
+ intro bg -->
+
+    <div class="inner-intro parallax bg-overlay-black-70" style="background-image: url(../statics/images/custom/gallery.JPG);">
+        <div class="container">
+            <div class="row text-center intro-title">
+                <div class="col-md-12">
+                    <h1 class="text-orange">Gallery</h1>
+                    {% comment %} <p class="text-white">We Know The Secret Of Your Success</p> {% endcomment %}
+                    <ul class="page-breadcrumb">
+                        <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+                        <li><a href="#">Gallery</a> </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=================================
+ intro bg -->
+
+    <!--=================================
+ gallery -->
+
+    <section class="gallery white-bg page-section-ptb">
+        
+        <div class="container">
+            
+            <div class="isotope popup-gallery columns-4">
+                    {% for img in gallery_img %}
+                    <div class="grid-item chinese mexican">
+                        <div class="galllery-item">
+                            <span><img class="img-fluid" src="../media/{{img.img}}" alt=""></span>
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                   
+                                    <a class="portfolio-img" href="../media/{{img.img}}"><i class="fa fa-expand"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    {% endfor %}
+                </div>
+
+        </div>
+    </section>
+
+    <!--=================================
+ gallery -->
+
+    <!--=================================
+  footer -->
+
+{% endblock body %}
