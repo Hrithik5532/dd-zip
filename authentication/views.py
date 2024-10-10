@@ -488,3 +488,84 @@ def forget_password(request):
 
         
     return render(request,'forget.html')
+
+
+
+
+# def gift_card(request):
+#     return render(request,'gift-cards.html',{'title':'Gift Card'})
+import paypalrestsdk
+
+paypalrestsdk.configure({
+    "mode": "sandbox",  # or "live"
+    "client_id": "ATpf7nvhrmIQKiOh3aVwTtr1ElkasrtmYl5yjAj68zpCJFiG8sQeZBMsJn6fOAV8oI2-ecTKEXtWcsLL",
+    "client_secret": "EMtjs8aKxlQNGfMvMsLO5jseDuRGYP0M7x0Ynt7RQAnzSA2dZzDDtB3OKQEJkicSIotM4YKkTruRsPVw"
+})
+
+def gift_card_detail(request):
+    gift_card = GiftCard.objects.first()
+    
+    if request.method =='POST':
+        amount = request.POST.get('amount')
+        receiver_name  = request.POST.get('receiver_name')
+        receiver_email = request.POST.get('receiver_email')
+        receiver_mobile = request.POST.get('receiver_mobile')
+        message = request.POST.get('message')
+        
+        card = PurchasedGiftCard.objects.create(user=request.user,gift_card=gift_card,amount=amount,receiver_name=receiver_name,receiver_email=receiver_email,receiver_mobile=receiver_mobile,message=message)
+        card.save()
+        payment = paypalrestsdk.Payment({
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal"
+            },
+            "redirect_urls": {
+                "return_url": "http://127.0.0.1:8000/gift-card/payment",
+                "cancel_url": "http://127.0.0.1:8000/gift-card/payment"
+            },
+            "transactions": [{
+                "amount": {
+                    "total": amount,
+                    "currency": "USD"
+                },
+                "description": "Payment description"
+            }]
+        })
+
+
+        if payment.create():
+            request.session['paypal_payment_id'] = payment.id
+            card.payment_id = payment.id
+            card.save()
+            for link in payment.links:
+                if link.method == "REDIRECT":
+                    redirect_url = str(link.href)
+                    return redirect(redirect_url)
+
+        else:
+            messages.error(request,"Payment Canceled")
+        
+            return redirect('gift_card')
+    
+    return render(request,'gift-card-detail.html',{'title':'Gift Card','gift_card':gift_card})
+
+
+def payment_execute(request):
+    payment_id = request.session.get('paypal_payment_id')
+    if payment_id is None:
+        return redirect('home')
+
+    payment = paypalrestsdk.Payment.find(payment_id)
+
+    if payment:
+        if payment.state == 'approved':
+            card = PurchasedGiftCard.objects.get(payment_id=payment_id)
+            card.payment_status = 'Completed'
+            card.save()
+            messages.success(request,'Payment Successfully')
+            messages.success(request,'Gift Card Sent Successfully.')
+            return redirect('gift_card')
+        else:
+            messages.error(request,"Payment Canceled")
+            return redirect('gift_card')
+        

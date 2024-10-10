@@ -1,0 +1,175 @@
+{% extends "template.html" %}
+    <!--=================================
+ header -->
+ {% block body %}
+ <style>
+   
+    .header {
+        padding: 10px;
+    }
+    .banner {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .content {
+        display: flex;
+        padding: 20px;
+    }
+    .left-column {
+        flex: 2;
+        padding-right: 20px;
+    }
+    .right-column {
+        flex: 1;
+    }
+    .voucher {
+        background-color: #f1f3f6;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .voucher  button {
+        background-color: #7f00ff;
+        color: #fff;
+        padding: 10px;
+        margin-right: 10px;
+        margin-top:10px;
+        font-size: 10px;
+    }
+    
+    .add-button {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 5px 15px;
+        color: #7f00ff;
+        cursor: pointer;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .delivery-mode {
+        margin-bottom: 15px;
+    }
+    .preview-section {
+        margin-top: 30px;
+        border: 1px solid #ddd;
+        padding: 20px;
+    }
+    .preview-image {
+        width: 100%;
+        height: 200px;
+        background-color: #333;
+        background-image: url('https://d30xo09qh5kcsn.cloudfront.net/qwikcilver/vouchers/website-banners/2023-12-21/1cf7b294bb849006-EGVGBFK001.png');
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 20px;
+    }
+    .gift-card-preview {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 4px;
+    }
+</style>
+<div class="container">
+    <div class="banner">
+        
+        {% if gift_card.image %}
+            
+        
+        <img style="    width: 100%;" src="{{gift_card.image.url}}" alt="Flipkart banner" />
+        {% endif %}
+    </div>
+    <div class="content">
+        <div class="left-column">
+            <h1>{{gift_card.heading}}</h1>
+           {{gift_card.description|safe}}
+        </div>
+        <div class="right-column">
+            <h3>Send as Gift</h3>
+            <form action="{% url 'gift_card' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="voucher-amount">Enter Amount in ( £ ) :</label>
+                    <input type="text" id="voucher-amount" name="amount" placeholder="Enter Amount" required>
+                </div>
+                <div class="voucher">
+                    <button type="button" class="button text-uppercase"onclick="changeAmount('10')">£10</button>
+                    <button type="button" class="button text-uppercase"onclick="changeAmount('20')">£20</button>
+                    <button type="button" class="button text-uppercase"onclick="changeAmount('50')">£50</button>
+                    <button type="button" class="button text-uppercase"onclick="changeAmount('100')">£100</button>
+                </div>
+                
+          
+                
+                <h4>Gifting Details</h4>
+                <div class="form-group">
+                    <input type="text" name="receiver_name" placeholder="Receiver's Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="receiver_email" placeholder="Receiver's Email" required>
+                    <small>Will be delivered to this id via Email</small>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="receiver_mobile" placeholder="Receiver's Mobile Number" required>
+                    <small>Will be delivered to this number via SMS</small>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Message for Receiver" rows="4"></textarea>
+                    <small>200 characters left</small>
+                </div>
+                <div class="form-group" style="display: flex;">
+                    <input type="checkbox" class="form-link" style="  margin-right: 5px;  height: auto; width: auto;" required>
+                    <small>I agree to terms and conditions.</small>
+
+                </div>
+                
+                <button type="submit" class="button text-uppercase">Add to Cart</button>
+            </form>
+
+          
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="preview-section">
+        <div class="gift-card-preview">
+            <h4>GOOD LUCK</h4>
+            <p>Hi Receiver,</p>
+            <p>You've got a Nykaa Gift Card - Buy 1 Get 1 Free</p>
+            <p><em>Your message will appear here</em></p>
+            <img src="https://d30xo09qh5kcsn.cloudfront.net/qwikcilver/vouchers/website-banners/2023-12-21/1cf7b294bb849006-EGVGBFK001.png" alt="Nykaa Gift Card" style="width: 100px; height: auto;">
+            <p><strong>₹1,000.00</strong></p>
+            <p>Card Number: XXXXXXXXXXXX</p>
+            <p>Pin: XXXXXX</p>
+            <p>*Validity: xx-xx-xxxx</p>
+        </div>
+    </div>
+</div>
+<script>
+    function changeAmount(amount) {
+        document.getElementById('voucher-amount').value = amount;
+    }
+</script>
+
+ {% endblock body %}

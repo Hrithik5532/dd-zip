@@ -117,7 +117,7 @@ def order_create(request):
         "transactions": [{
             "amount": {
                 "total": order.total,
-                "currency": "USD"
+                "currency": "eur"
             },
             "description": "Payment description"
         }]
