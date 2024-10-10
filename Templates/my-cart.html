@@ -284,20 +284,22 @@
         <div class="col-lg-3">
           <div class="card mb-3 border shadow-0">
             <div class="card-body">
-              <form>
+              <form method="POST" action="{% url 'my-cart' %}" method="POST">
+                {% csrf_token %}
                 <div class="form-group">
                   <label class="form-label">Have coupon?</label>
                   <div class="input-group">
                     <input
-                      type="text"
-                      class="form-control border"
-                      name=""
-                      placeholder="Coupon code"
+                    type="text"
+                    class="form-control border"
+                    name="coupon"
+                    placeholder="Coupon code"
                     />
-                    <button class="btn btn-light border">Apply</button>
+                    <button type="submit" class="btn btn-light border">Apply</button>
                   </div>
                 </div>
               </form>
+              <a href="{% url 'verify_coupon' %}" style="font-size: 12px;">Available Coupons.</a>
             </div>
           </div>
           <form action="{% url 'order-create' %}" method="POST">
@@ -470,7 +472,7 @@
       removeFromCart(itemId);
       return;
     }
-    const apiUrl = `https://bombay2goa.co.uk/add-cart?itemId=${itemId}&qty=${qty}`;
+    const apiUrl = `http://127.0.0.1:8000/add-cart?itemId=${itemId}&qty=${qty}`;
 
     fetch(apiUrl, {
       method: "GET",
@@ -523,7 +525,7 @@
     // Pass the event as an argument to the function
     window.event.preventDefault();
 
-    const apiUrl = `https://bombay2goa.co.uk/remove-from-cart?itemId=${itemId}`;
+    const apiUrl = `http://127.0.0.1:8000/remove-from-cart?itemId=${itemId}`;
 
     fetch(apiUrl, {
       method: "GET",

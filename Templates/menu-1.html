@@ -691,7 +691,7 @@ hr {
     event.preventDefault(); // Prevent the default form submission behavior
   
     const qty = document.getElementById('quantity' + itemId).innerText;
-    const apiUrl = `https://bombay2goa.co.uk/add-cart?itemId=${itemId}&qty=${qty}`;
+    const apiUrl = `http://127.0.0.1:8000/add-cart?itemId=${itemId}&qty=${qty}`;
   
     fetch(apiUrl, {
       method: 'GET',
@@ -745,7 +745,7 @@ hr {
   function removeFromCart(itemId) {
     event.preventDefault(); // Prevent the default form submission behavior
   
-    const apiUrl = `https://bombay2goa.co.uk/remove-from-cart?itemId=${itemId}`;
+    const apiUrl = `http://127.0.0.1:8000/remove-from-cart?itemId=${itemId}`;
   
     fetch(apiUrl, {
       method: 'GET',

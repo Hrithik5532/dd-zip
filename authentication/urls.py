@@ -32,8 +32,10 @@ urlpatterns = [
     
     # path('gift_card',views.gift_card,name="gift_card"),
     path('gift-card-details',views.gift_card_detail,name="gift_card"),
-        path('gift-card/payment',views.payment_execute),
+        path('gift-card/payment',views.payment_execute,name="payment_execute"),
 
     # path('session-add-cart',views.session_cart,name='session_cart'),
+    
+    path('all-coupons',views.verify_coupon,name='verify_coupon'),
 
 ]

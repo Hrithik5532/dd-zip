@@ -9,6 +9,8 @@ admin.site.register(Newsletter)
 admin.site.register(GiftCard)
 admin.site.unregister(Group)
 admin.site.register(PurchasedGiftCard)
+admin.site.register(GiftCardDesigns)
+admin.site.register(DiscountCoupon)
 # admin.site.register(Cart)
 
 class OrderAdmin(admin.ModelAdmin):

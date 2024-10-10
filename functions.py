@@ -35,8 +35,8 @@ text-align: center; margin: 0 auto; width: 650px; font-family: 'Public Sans', sa
                                 <tr class="header"
                                     style="background-color: #f7f7f7;display: flex;align-items: center;width: 100%;    justify-content: center !important;">
                                     <td class="header-logo" style="padding: 10px 32px;">
-                                        <a href="https://bombay2goa.co.uk" style="display: block; text-align: left;">
-                                            <img src="https://bombay2goa.co.uk/statics/images/B2G-1.png" style="width:8rem" class="main-logo" alt="logo">
+                                        <a href="http://127.0.0.1:8000" style="display: block; text-align: left;">
+                                            <img src="http://127.0.0.1:8000/statics/images/B2G-1.png" style="width:8rem" class="main-logo" alt="logo">
                                         </a>
                                     </td>
                                 </tr>
@@ -155,7 +155,7 @@ text-align: center; margin: 0 auto; width: 650px; font-family: 'Public Sans', sa
                             style="background-color: #f7f7f7;display: flex;align-items: center;justify-content: space-between;width: 100%;">
                             <td class="header-logo" style="padding: 10px 32px;">
                                 <a href="../front-end/index.html" style="display: block; text-align: left;">
-                                    <img src="https://bombay2goa.co.uk/static/assets/images/logo/logo_5.png" class="main-logo" alt="logo">
+                                    <img src="http://127.0.0.1:8000/static/assets/images/logo/logo_5.png" class="main-logo" alt="logo">
                                 </a>
                             </td>
                         </tr>
@@ -323,7 +323,7 @@ def send_email_order_confirm(request,user,order,status):
         Email : {email}\n
         Order Id : {id}\n
         Date : {date}\n
-        <a href="https://bombay2goa.co.uk/admin/authentication/order/{id}/change/" target="_blank">View On Admin Panel</a>
+        <a href="http://127.0.0.1:8000/admin/authentication/order/{id}/change/" target="_blank">View On Admin Panel</a>
     """.format(name=str(order.customer_first_name) + str(order.customer_last_name),email=order.customer_email,date=order.created_at,id=order.id)
     recipients = ['bombay2goa.hotel@gmail.com']
     email = EmailMessage(
@@ -422,7 +422,7 @@ def send_email_reservation(request,reservation):
         Date : {date}\n
         Time : {time}\n
         Confirmation : {confirmation}
-        <a href="https://bombay2goa.co.uk/admin/Reservations_Reviews_Contact/reservation/{id}/change/" target="_blank">View On Admin Panel</a>
+        <a href="http://127.0.0.1:8000/admin/Reservations_Reviews_Contact/reservation/{id}/change/" target="_blank">View On Admin Panel</a>
     """.format(name=reservation.name,email=reservation.email,date=reservation.date,id=reservation.id,time=reservation.time,no_persons=reservation.no_persons,confirmation=reservation.confirmation)
     recipients = ['bombay2goa.hotel@gmail.com']
     email = EmailMessage(

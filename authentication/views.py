@@ -13,7 +13,7 @@ from django.db.models import Sum
 from functions import send_email_otp
 from Product.models import SubCategory,Product
 from Reservations_Reviews_Contact.models import Review
-
+from datetime import datetime, timedelta
 
 def online_ordering(request):
     return render(request,'order-online.html')
@@ -427,6 +427,20 @@ def my_cart(request):
         delivery_price =0
         total_price = Subtotal_price
         
+    if request.method == 'POST':
+        coupon = request.POST.get('coupon')
+        if PurchasedGiftCard.objects.filter(code=coupon).exists():
+            discount_amount = PurchasedGiftCard.objects.get(code=coupon).amount
+            discount_percentage = PurchasedGiftCard.objects.get(code=coupon).percentage
+            total_price = Subtotal_price - discount_amount
+            discount_percentage = discount_percentage
+            total_price = Subtotal_price - discount_amount
+        else:
+            discount_percentage = 0
+            discount_amount = 0
+            total_price = Subtotal_price
+        
+        
     return render(request,'my-cart.html',{'title':'My Cart','result_list':menu_list(),'cart_items':cart_items,'addresses':addresses,'total_price':total_price,'delivery_price':delivery_price,'Subtotal_price':Subtotal_price})
 
 
@@ -504,68 +518,115 @@ paypalrestsdk.configure({
 
 def gift_card_detail(request):
     gift_card = GiftCard.objects.first()
-    
+    designs= GiftCardDesigns.objects.all() 
     if request.method =='POST':
-        amount = request.POST.get('amount')
-        receiver_name  = request.POST.get('receiver_name')
-        receiver_email = request.POST.get('receiver_email')
-        receiver_mobile = request.POST.get('receiver_mobile')
-        message = request.POST.get('message')
-        
-        card = PurchasedGiftCard.objects.create(user=request.user,gift_card=gift_card,amount=amount,receiver_name=receiver_name,receiver_email=receiver_email,receiver_mobile=receiver_mobile,message=message)
-        card.save()
-        payment = paypalrestsdk.Payment({
-            "intent": "sale",
-            "payer": {
-                "payment_method": "paypal"
-            },
-            "redirect_urls": {
-                "return_url": "http://127.0.0.1:8000/gift-card/payment",
-                "cancel_url": "http://127.0.0.1:8000/gift-card/payment"
-            },
-            "transactions": [{
-                "amount": {
-                    "total": amount,
-                    "currency": "USD"
-                },
-                "description": "Payment description"
-            }]
-        })
-
-
-        if payment.create():
-            request.session['paypal_payment_id'] = payment.id
-            card.payment_id = payment.id
-            card.save()
-            for link in payment.links:
-                if link.method == "REDIRECT":
-                    redirect_url = str(link.href)
-                    return redirect(redirect_url)
-
-        else:
-            messages.error(request,"Payment Canceled")
-        
-            return redirect('gift_card')
+        amount = request.POST.get('amount',None)
+        receiver_name  = request.POST.get('receiver_name',None)
+        receiver_email = request.POST.get('receiver_email',None)
+        receiver_mobile = request.POST.get('receiver_mobile',None)
+        message = request.POST.get('message',None)
+        occasion = request.POST.get('occasion',None)
+        if occasion == None:
+            messages.error(request,"Please Select Occasion")
+            return  redirect('gift_card')
+        if receiver_email == None:
+            messages.error(request,"Please Enter Receiver Email")
+            return  redirect('gift_card')
+        if  amount == None:
+            messages.error(request,"Please Enter Amount")
+            return  redirect('gift_card')
     
-    return render(request,'gift-card-detail.html',{'title':'Gift Card','gift_card':gift_card})
+        card = PurchasedGiftCard.objects.create(user=request.user,gift_card=GiftCardDesigns.objects.get(id=occasion),amount=amount,receiver_name=receiver_name,receiver_email=receiver_email,receiver_mobile=receiver_mobile,message=message)
+        card.save()
+        # payment = paypalrestsdk.Payment({
+        #     "intent": "sale",
+        #     "payer": {
+        #         "payment_method": "paypal"
+        #     },
+        #     "redirect_urls": {
+        #         "return_url": "http://127.0.0.1:8000/gift-card/payment",
+        #         "cancel_url": "http://127.0.0.1:8000/gift-card/payment"
+        #     },
+        #     "transactions": [{
+        #         "amount": {
+        #             "total": amount,
+        #             "currency": "USD"
+        #         },
+        #         "description": "Payment description"
+        #     }]
+        # })
+
+
+        # if payment.create():
+        #     request.session['paypal_payment_id'] = payment.id
+        #     card.payment_id = payment.id
+        #     card.save()
+        #     for link in payment.links:
+        #         if link.method == "REDIRECT":
+        #             redirect_url = str(link.href)
+        #             return redirect(redirect_url)
+
+        # else:
+        #     messages.error(request,"Payment Cancelled")
+        
+        #     return redirect('gift_card')
+        request.session['payment_id'] = card.id
+        return redirect('payment_execute')
+    
+    return render(request,'gift-card-detail.html',{'title':'Gift Card','gift_card':gift_card,'designs':designs})
 
 
 def payment_execute(request):
-    payment_id = request.session.get('paypal_payment_id')
-    if payment_id is None:
-        return redirect('home')
+    # payment_id = request.session.get('paypal_payment_id')
+    # if payment_id is None:
+    #     return redirect('home')
 
-    payment = paypalrestsdk.Payment.find(payment_id)
+    # payment = paypalrestsdk.Payment.find(payment_id)
 
-    if payment:
-        if payment.state == 'approved':
-            card = PurchasedGiftCard.objects.get(payment_id=payment_id)
-            card.payment_status = 'Completed'
-            card.save()
-            messages.success(request,'Payment Successfully')
-            messages.success(request,'Gift Card Sent Successfully.')
-            return redirect('gift_card')
+    # if payment:
+    #     if payment.state == 'approved':
+    #         card = PurchasedGiftCard.objects.get(payment_id=payment_id)
+    #         card.payment_status = 'Completed'
+    #         card.save()
+    #         messages.success(request,'Payment Successfully')
+    #         messages.success(request,'Gift Card Sent Successfully.')
+    #         return redirect('gift_card')
+    #     else:
+    #         messages.error(request,"Payment Cancelled")
+    #         return redirect('gift_card')
+    
+    card_id = request.session.get('payment_id')
+    card = PurchasedGiftCard.objects.get(id=card_id)
+    card.payment_status = 'Completed'
+    card.code = random.randint(100000, 999999)
+    card.end_date = datetime.now() + timedelta(days=90)
+    
+    card.save()
+    messages.success(request,'Gift Card Sent Successfully.')
+    return redirect('gift_card')
+
+
+
+def verify_coupon(request):
+    coupons = DiscountCoupon.objects.all()
+    purchase_card = None
+    coupon = request.GET.get('coupon',None)
+    email = request.GET.get('email',None)
+    print(coupon,email)
+    if email:
+        if PurchasedGiftCard.objects.filter(code=coupon,receiver_email=email).exists():
+            purchase_card = PurchasedGiftCard.objects.get(code=coupon,receiver_email=email)
+    if request.method == 'POST':
+        redeemed = request.POST.get('redeemed')
+        coupon = request.POST.get('coupon')
+        purchase_card = PurchasedGiftCard.objects.get(code=coupon)
+        if redeemed == 'on' :
+            purchase_card.redeemed = True 
+            purchase_card.save()
+            messages.success(request,'Coupon Redeemed Successfully.')
+            return redirect('verify_coupon')
         else:
-            messages.error(request,"Payment Canceled")
-            return redirect('gift_card')
-        
+            messages.error(request,'Please Select Redeem')
+            return redirect('verify_coupon')
+
+    return render(request,'all-coupons.html',{'title':'Coupon','coupons':coupons,'purchase_card':purchase_card})

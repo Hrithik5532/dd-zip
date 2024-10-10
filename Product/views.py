@@ -111,8 +111,8 @@ def order_create(request):
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "https://bombay2goa.co.uk/order-menu/payment/execute/",
-            "cancel_url": "https://bombay2goa.co.uk/order-menu/payment/cancel/"
+            "return_url": "http://127.0.0.1:8000/order-menu/payment/execute/",
+            "cancel_url": "http://127.0.0.1:8000/order-menu/payment/cancel/"
         },
         "transactions": [{
             "amount": {

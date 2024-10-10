@@ -133,7 +133,6 @@ from ckeditor.fields import RichTextField
 
 class GiftCardDesigns(models.Model):
     heading = models.CharField(max_length=400)
-    description = RichTextField()
     image=models.ImageField(upload_to='Gift-Card/')
     
     created_at = models.DateTimeField(auto_now=True)
@@ -149,7 +148,7 @@ class GiftCard(models.Model):
 
 class PurchasedGiftCard(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    gift_card = models.ForeignKey(GiftCard, on_delete=models.CASCADE)
+    gift_card = models.ForeignKey(GiftCardDesigns, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     receiver_name = models.CharField(max_length=255)
     receiver_email = models.EmailField()
@@ -158,9 +157,11 @@ class PurchasedGiftCard(models.Model):
     
     payment_id = models.CharField(max_length=50, null=True, blank=True)
     payment_status = models.CharField(max_length=20, choices=(('Pending', 'Pending'),('Failed', 'Failed'), ('Completed', 'Completed')), default='Pending')
+    
+    
     mail_sent = models.BooleanField(default=False)
     claimed = models.BooleanField(default=False)
-    
+    code = models.CharField(max_length=20, unique=True,null=True, blank=True)
     expire = models.BooleanField(default=False)
     redeemed = models.BooleanField(default=False)
     end_date = models.DateTimeField(null=True, blank=True)
@@ -170,3 +171,13 @@ class PurchasedGiftCard(models.Model):
     def __str__(self):
         return f"Gift Card for {self.receiver_name} from {self.user.username}"
     
+    
+    
+class DiscountCoupon(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2)
+    expiration_date = models.DateField()
+    description = RichTextField(null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
